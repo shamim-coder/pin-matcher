@@ -1,24 +1,21 @@
-function randomNumberGenerate() {
-    const randomNumbers = Math.random()
-    const random4Num = randomNumbers * 10000
-    const splitNum = random4Num.toString()
-    const splitNumArr = splitNum.split('.')
+function getPin() {
+    const randomNumbers = Math.random() * 10000 + ''
+    const splitNumArr = randomNumbers.split('.')
     const randomNumber = splitNumArr[0];
-    return randomNumber
+    if(randomNumber.length === 4) {
+        return randomNumber;
+    }
+    else {
+        return getPin();
+    }
 }
 
-document.getElementById('pin-generate-btn').addEventListener('click', function () {
+function generatePin(){
+    const generatePin = document.getElementById('pin-generate-input')
+    generatePin.value = getPin()
+}
 
-    const randomNumber = randomNumberGenerate()
-    if (randomNumber.length < 4) {
-        console.log('not a four digit');
-    } else {
-        document.getElementById('pin-generate-input').value = randomNumber
-    }
-
-})
-
-document.getElementById('key-container').addEventListener('click', function (event) {
+function getKeys(){
     const targetValue = event.target.innerText
     const pinOutput = document.getElementById('pin-match-output')
     
@@ -31,9 +28,9 @@ document.getElementById('key-container').addEventListener('click', function (eve
     else {
         pinOutput.value = pinOutput.value + targetValue
     }
-})
+}
 
-document.getElementById('pin-submit').addEventListener('click', function(){
+function verifyPin(){
     const inputPin = document.getElementById('pin-generate-input').value
     const outputPin = document.getElementById('pin-match-output').value
     const pinMatchingShow = document.getElementById('pin-generate-btn')
@@ -41,14 +38,15 @@ document.getElementById('pin-submit').addEventListener('click', function(){
     if(inputPin == outputPin && outputPin.length == 4) {
         pinMatchingShow.style.backgroundColor="#28a745"
         pinMatchingShow.style.borderColor="#25843b"
-        pinMatchingShow.innerText = "Pin Matched"
+        pinMatchingShow.innerText = "✅ Pin Matched"
         
         // document.getElementById('match-notify').style.display="block"
     } else {
         pinMatchingShow.style.backgroundColor="red"
         pinMatchingShow.style.borderColor="#c50014"
-        pinMatchingShow.innerText = "NOT Matched"
+        pinMatchingShow.innerText = "❌ NOT Matched"
         
         // document.getElementById('not-match-notify').style.display="block"
     }
-})
+}
+

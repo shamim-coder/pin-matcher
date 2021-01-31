@@ -15,14 +15,14 @@
             <div class="col-md-6">
                 <div class="pin-generator half-width">
                     <input id="pin-generate-input" class="form-control" type="text">
-                    <button id="pin-generate-btn" class="generate-btn">Generate Pin</button>
+                    <button onclick="generatePin()" id="pin-generate-btn" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
                     <input id="pin-match-output" class="form-control" type="text">
                     <div class="numbers">
-                        <div id="key-container" class="calc-body">
+                        <div onclick="getKeys()" id="key-container" class="calc-body">
                             <div class="calc-button-row">
                                 <div class="button">7</div>
                                 <div class="button">8</div>
@@ -45,7 +45,7 @@
                             </div>
 
                             <div>
-                                <button id="pin-submit" type="submit" class="submit-btn">Submit</button>
+                                <button onclick="verifyPin()" id="pin-submit" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                         </div>
