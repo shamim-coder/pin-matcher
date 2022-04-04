@@ -15,15 +15,15 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="pin-generate-input" class="form-control" type="text">
-                    <button onclick="generatePin()" id="pin-generate-btn" class="generate-btn">Generate Pin</button>
+                    <input id="pin-generate-output" class="form-control" type="text">
+                    <button id="pin-generate-btn" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
                     <input id="pin-match-output" class="form-control" type="text">
                     <div class="numbers">
-                        <div onclick="getKeys()" id="key-container" class="calc-body">
+                        <div id="key-container" class="calc-body">
                             <div class="calc-button-row">
                                 <div class="button">7</div>
                                 <div class="button">8</div>
@@ -40,29 +40,31 @@
                                 <div class="button">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button">
-                                    << /div>
-                                        <div class="button">0</div>
-                                        <div class="button">C</div>
-                                </div>
+                                <div class="button">&lt;</div>
+                                <div class="button">0</div>
+                                <div class="button">C</div>
+                            </div>
 
-                                <div>
-                                    <button onclick="verifyPin()" id="pin-submit" type="submit"
-                                        class="submit-btn">Submit</button>
-                                    <p class="action-left">3 try left</p>
-                                </div>
+                            <div>
+                                <button id="submit-btn" type="submit" class="submit-btn">Submit</button>
+                                <p id="try-ok-text" class="action-left"><span id="try-left">3</span> try left</p>
+                                <p id="try-text" class="action-left"> You have tried 3 times, generate new pin</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="notify-section">
-                    <p id="not-match-notify" class="notify">❌ Pin Didn't Match, Please try again</p>
-                    <p id="match-notify" class="notify">✅ Pin Matched... Secret door is opening for you</p>
-                </div>
             </div>
-
-            <script src="app.js"></script>
+            <div class="notify-section">
+                <p id="not-match-notify" class="notify">❌ Pin Didn't Match, Please try again</p>
+                <p id="match-notify" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            </div>
         </div>
+
+
+        <button id="increment-btn">3</button>
+
+        <script src="app.js"></script>
+    </div>
 </body>
 
 </html>
